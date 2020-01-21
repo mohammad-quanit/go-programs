@@ -26,9 +26,20 @@ func main() {
 	var π float32 = 3.14
 	fmt.Println(5 + π)
 
-	var maxUint32 uint32 = 4294967295  // Max uint32 size
+	var maxUint32 uint32 = 4294967295 // Max uint32 size
 	maxUint32 = maxUint32 + 1
-  fmt.Println(maxUint32)
+	fmt.Println(maxUint32)
+
+	// raw literal strings
+	str := `This string is on 
+multiple lines
+within a single back 
+quote on either side.`
+	fmt.Println(str)
+
+	// var i2 int = 222
+	// var num float32 = float32(i2)
+	// fmt.Println(num)
 
 	// mathFunc()
 	// // var num1, num2 float64 = 5.6, 100.55
