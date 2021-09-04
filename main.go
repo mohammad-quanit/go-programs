@@ -2,14 +2,25 @@ package main
 
 import (
 	// "fmt"
+	"fmt"
 
-	"github.com/mohammad-quanit/go-programs/program1"
-	"github.com/mohammad-quanit/go-programs/program2"
-	"github.com/mohammad-quanit/go-programs/program3"
+	"github.com/mohammad-quanit/go-programs/DeferTutorial"
 )
 
 func main() {
-	program1.CalcCubeAndSquare()
-	program2.ExecIO()
-	program3.UniAndBiChannel()
+	fmt.Println("I'll be executed first!")
+
+	// DeferTutorial.DeferExample()
+
+	// err := DeferTutorial.MyAwesomeFunction()
+	// if err != nil {
+	// 	fmt.Println(err.Error())
+	// }
+
+	// fmt.Println(DeferTutorial.ReturnValue())
+
+	quanit := &DeferTutorial.Engineer{Name: "Mohammad"}
+	fmt.Printf("%+v\n", quanit)
+	DeferTutorial.DoStuff(quanit)
+	fmt.Printf("%+v\n", quanit)
 }
