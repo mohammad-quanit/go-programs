@@ -1,4 +1,4 @@
-# GoLang - Tutorials
+# Golang - Tutorials
 
 ### I have created this repo for Golang examples. 
 ### Do check it out, if you are learning GoLang.
