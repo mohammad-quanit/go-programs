@@ -3,12 +3,12 @@ package program3
 import "fmt"
 
 // send only channerl passed in goroutine
-func sendData(sendCh chan<- int)  {
+func sendData(sendCh chan<- int) {
 	sendCh <- 10
 }
 
 func receiveData(receiveCh <-chan int) {
-	fmt.Println(<- receiveCh)
+	fmt.Println(<-receiveCh)
 }
 
 func producer(chnl chan<- int) {
@@ -28,10 +28,10 @@ func receiver(chnl <-chan int) {
 	}
 }
 
-func UniAndBiChannel()  {
+func UniAndBiChannel() {
 	// sendCh := make(<-chan int) // receive only channel (unidirectional)
 	// sendCh := make(chan<- int) // send only channel (unidirectional)
-	sendCh := make(chan int)  // bidirection channel
+	sendCh := make(chan int) // bidirection channel
 	loopCh := make(chan int)
 
 	go sendData(sendCh)

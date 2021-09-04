@@ -3,14 +3,12 @@ package main
 import (
 	// "fmt"
 
-	// "fmt"
-
 	"github.com/mohammad-quanit/go-programs/program1"
 	"github.com/mohammad-quanit/go-programs/program2"
 	"github.com/mohammad-quanit/go-programs/program3"
 )
 
-func main()  {
+func main() {
 	program1.CalcCubeAndSquare()
 	program2.ExecIO()
 	program3.UniAndBiChannel()
