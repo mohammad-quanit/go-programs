@@ -2,37 +2,29 @@ package main
 
 import (
 	"fmt"
-	"sort"
+
+	"github.com/mohammad-quanit/go-programs/exercises"
 )
 
-func isHandOfStraights(hand []int, k int) bool {
-	if len(hand)%k != 0 {
-		return false
-	}
-	count := make(map[int]int)
-	for _, v := range hand {
-		count[v] = count[v] + 1
-	}
-	sort.Ints(hand)
-	i := 0
-	n := len(hand)
-	for i < n {
-		current := hand[i]
-		for j := 0; j < k; j++ {
-			if _, ok := count[current+j]; !ok || count[current+j] == 0 {
-				return false
-			}
-			count[current+j]--
-		}
-		for i < n && count[hand[i]] == 0 {
-			i++
-		}
-	}
-	return true
-}
-
 func main() {
-	hand := []int{5, 2, 4, 4, 1, 3, 5, 6, 3}
-	k := 3
-	fmt.Println(isHandOfStraights(hand, k))
+	str1 := "hello"
+	str2 := "world"
+	str4 := fmt.Sprintf("%s %s", str1, str2)
+	fmt.Println(str4)
+
+	fmt.Println()
+	exercises.StringToNumeric()
+
+	fmt.Println()
+	exercises.NumericToString()
+
+	fmt.Println()
+	exercises.StringParser()
+
+	fmt.Println()
+	exercises.StringLength("welcome to go")
+
+	fmt.Println()
+	exercises.StringCopy()
+
 }
