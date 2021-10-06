@@ -1,30 +1,33 @@
 package main
 
 import (
-	"fmt"
-
-	"github.com/mohammad-quanit/go-programs/exercises"
+	"time"
 )
 
+type Employee struct {
+	id      int
+	name    string
+	country string
+	created time.Time
+}
+
 func main() {
-	str1 := "hello"
-	str2 := "world"
-	str4 := fmt.Sprintf("%s %s", str1, str2)
-	fmt.Println(str4)
+	var emp Employee
+	newEmp := new(Employee)
 
-	fmt.Println()
-	exercises.StringToNumeric()
+	// set values
+	emp.id = 2
+	emp.name = "Employee 1"
+	emp.country = "DE"
+	emp.created = time.Now()
 
-	fmt.Println()
-	exercises.NumericToString()
+	newEmp.id = 5
+	newEmp.name = "Employee 2"
+	newEmp.country = "BE"
+	newEmp.created = time.Now()
 
-	fmt.Println()
-	exercises.StringParser()
-
-	fmt.Println()
-	exercises.StringLength("welcome to go")
-
-	fmt.Println()
-	exercises.StringCopy()
-
+	shape := Circle{x: 12, y: 15, r: 22.5}
+	shape.display()
+	shape.area()
+	shape.moveTo(66, 77)
 }
