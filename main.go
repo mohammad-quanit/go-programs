@@ -1,33 +1,44 @@
 package main
 
 import (
-	"time"
+	"fmt"
+	"io/ioutil"
+	"os"
 )
 
-type Employee struct {
-	id      int
-	name    string
-	country string
-	created time.Time
-}
-
 func main() {
-	var emp Employee
-	newEmp := new(Employee)
+	myData := []byte("This is written file\n")
+	err := ioutil.WriteFile("newfile.data", myData, 0777)
+	if err != nil {
+		fmt.Println(err)
+	}
+	fmt.Println("Successfully added to file")
 
-	// set values
-	emp.id = 2
-	emp.name = "Employee 1"
-	emp.country = "DE"
-	emp.created = time.Now()
+	data, err := ioutil.ReadFile("newfile.data")
+	if err != nil {
+		fmt.Println(err)
+	}
 
-	newEmp.id = 5
-	newEmp.name = "Employee 2"
-	newEmp.country = "BE"
-	newEmp.created = time.Now()
+	fmt.Println(string(data))
 
-	shape := Circle{x: 12, y: 15, r: 22.5}
-	shape.display()
-	shape.area()
-	shape.moveTo(66, 77)
+	//adding additional data in existing file
+	f, err := os.OpenFile("newfile.data", os.O_APPEND|os.O_WRONLY, 0600)
+	if err != nil {
+		panic(err)
+	}
+
+	defer f.Close()
+
+	myNewData := []byte("New data that wasn't there originally\n")
+	if _, err := f.Write(myNewData); err != nil {
+		panic(err)
+	}
+
+	// reading file again after changes
+	data, err = ioutil.ReadFile("newfile.data")
+	if err != nil {
+		fmt.Println(err)
+	}
+
+	fmt.Print(string(data))
 }
