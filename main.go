@@ -1,55 +1,48 @@
 package main
 
-import (
-	"fmt"
-	"log"
-	"net/http"
-	"sync"
-)
+// func goroutine1(waitgroup *sync.WaitGroup) {
+// 	fmt.Println("Inside my goroutine 1")
+// 	waitgroup.Done()
+// }
 
-func goroutine1(waitgroup *sync.WaitGroup) {
-	fmt.Println("Inside my goroutine 1")
-	waitgroup.Done()
-}
+// func goroutine2(waitgroup *sync.WaitGroup) {
+// 	fmt.Println("Inside my goroutine 2")
+// 	waitgroup.Done()
+// }
 
-func goroutine2(waitgroup *sync.WaitGroup) {
-	fmt.Println("Inside my goroutine 2")
-	waitgroup.Done()
-}
+// var urls = []string{
+// 	"https://google.com",
+// 	"https://tutorialedge.net",
+// 	"https://twitter.com",
+// }
 
-var urls = []string{
-	"https://google.com",
-	"https://tutorialedge.net",
-	"https://twitter.com",
-}
+// func fetch(url string, wg *sync.WaitGroup) (string, error) {
+// 	resp, err := http.Get(url)
+// 	if err != nil {
+// 		log.Printf("HTTP Error: %s", err)
+// 		return "", err
+// 	}
+// 	wg.Done()
+// 	log.Println(resp.Request.URL, resp.Status)
+// 	return resp.Status, nil
+// }
 
-func fetch(url string, wg *sync.WaitGroup) (string, error) {
-	resp, err := http.Get(url)
-	if err != nil {
-		log.Printf("HTTP Error: %s", err)
-		return "", err
-	}
-	wg.Done()
-	log.Println(resp.Request.URL, resp.Status)
-	return resp.Status, nil
-}
+// func homePage(w http.ResponseWriter, r *http.Request) {
+// 	fmt.Println("HomePage Endpoint Hit")
+// 	var wg sync.WaitGroup
+// 	for _, url := range urls {
+// 		wg.Add(1)
+// 		go fetch(url, &wg)
+// 	}
+// 	wg.Wait()
+// 	fmt.Println("Returning Response")
+// 	fmt.Fprintf(w, "All Responses Received")
+// }
 
-func homePage(w http.ResponseWriter, r *http.Request) {
-	fmt.Println("HomePage Endpoint Hit")
-	var wg sync.WaitGroup
-	for _, url := range urls {
-		wg.Add(1)
-		go fetch(url, &wg)
-	}
-	wg.Wait()
-	fmt.Println("Returning Response")
-	fmt.Fprintf(w, "All Responses Received")
-}
-
-func handleRequests() {
-	http.HandleFunc("/", homePage)
-	log.Fatal(http.ListenAndServe(":8081", nil))
-}
+// func handleRequests() {
+// 	http.HandleFunc("/", homePage)
+// 	log.Fatal(http.ListenAndServe(":8081", nil))
+// }
 
 func main() {
 	// fmt.Println("Execute first")
@@ -66,5 +59,23 @@ func main() {
 
 	// fmt.Println("Execute last")
 
-	handleRequests()
+	// handleRequests()
+	// go print("hello ")
+	// go print("Quanit")
+
+	// go func(s string) {
+	// 	for i := 0; i < 5; i++ {
+	// 		time.Sleep(100 * time.Millisecond)
+	// 		fmt.Printf("%v: %v \n", s, i)
+	// 	}
+	// }("Ahmed")
+
+	ConcurrencyDemo()
 }
+
+// func print(s string) {
+// 	for i := 0; i < 5; i++ {
+// 		time.Sleep(100 * time.Millisecond)
+// 		fmt.Printf("%v: %v \n", s, i)
+// 	}
+// }
