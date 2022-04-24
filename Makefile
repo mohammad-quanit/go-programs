@@ -1,5 +1,5 @@
 run:
-	clear && go run main.go
+	clear && go run *.go
 
 build:
-	go build -o bin/main main.go
+	go build -o ifs && ./ifs 
