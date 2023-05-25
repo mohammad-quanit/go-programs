@@ -1,3 +1,3 @@
 module github.com/mohammad-quanit/go-programs
 
-go 1.17
+go 1.20
